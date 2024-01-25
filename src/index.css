@@ -1,0 +1,109 @@
+
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  height: 100vh;
+  width: 100vw;
+  /* background-color: aqua; */
+  overflow-x: hidden;
+}
+.logo{
+  color: #0A2FB6;
+  font-size: 28px;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  top: 2rem;
+  left: 2rem;
+  position: absolute;
+}
+.ellipse{
+  position: absolute;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.50);
+}
+.ellipse-1{
+  width: 66px;
+  height: 66px;
+  right: 55px;
+  bottom: 207px;
+}
+.ellipse-2{
+  width: 50px;
+  height: 50px;
+  right: 89px;
+  bottom: -18px;
+}
+.ellipse-3{
+  width: 20px;
+  height: 20px;
+  right: 267px;
+  bottom: 24px;
+}
+.ellipse-4{
+  width: 50px;
+  height: 50px;
+  top: 81px;
+  left: 92px;
+}
+.ellipse-5{
+  width: 20px;
+  height: 20px;
+  right: 45px;
+  top: 19px;
+}
+.carbon-black{
+  color: #263A43 !important;
+}
+.carbon-blue{
+  color: #00418B !important;
+}
+.font-Montserrat{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.form-input{
+  border: 1px solid #B1B1B1;
+  transition: all 0.2s;
+}
+
+.form-input:active{
+  box-shadow: none;
+  border: 1px solid #B1B1B1;
+  border-bottom: 3px solid #54E28D !important;
+}
+
+.form-input:focus{
+  box-shadow: none;
+  border: 1px solid #B1B1B1;
+  border-bottom: 4px solid #54E28D !important;
+}
+
+.home-card{
+  background-color: #F2F2F2;
+
+}
+
+.navbar{
+  position: absolute;
+  top: 0;
+}
+.link{
+  transition: all 0.5s;
+  border-bottom: 3px solid transparent;
+
+}
+.link:hover{
+  border-bottom: 3px solid blue;
+}
+
+.active{
+  border-bottom: 3px solid blue;
+}
+.pointer{
+  cursor: pointer !important;
+}
