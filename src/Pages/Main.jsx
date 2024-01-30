@@ -1,7 +1,14 @@
 import React from "react";
 import NavBar from "../Components/NavBar";
+import { useNavigate } from "react-router-dom";
 
-const Main = ({ children, setRegister }) => {
+const Main = ({ children, setRegister }) => {  
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    setRegister(false);
+    navigate("/login");
+  };
   return (
     <div
       style={{
@@ -19,7 +26,7 @@ const Main = ({ children, setRegister }) => {
       >
         LOGO
       </span>
-      <NavBar setRegister={setRegister} />
+      <NavBar handleLogOut={handleLogOut} setRegister={setRegister} />
       {children}
     </div>
   );

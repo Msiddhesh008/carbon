@@ -9,12 +9,7 @@ const Tansport = ({ register, setRegister }) => {
   const [ useCar, setUseCar ] = useState(false)
 
 
-  const navigate = useNavigate();
 
-  const handleLogOut = () => {
-    setRegister(false);
-    navigate("/login");
-  };
 
   return (
     <div

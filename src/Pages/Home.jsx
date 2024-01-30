@@ -9,7 +9,6 @@ const Home = () => {
 
   const navigate = useNavigate()
   const handelTryNow = () => {
-    console.log("logog");
     navigate("/house")
   }
   return (
