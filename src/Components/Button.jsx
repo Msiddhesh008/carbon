@@ -4,10 +4,7 @@ const Button = ({handler, title}) => {
     <button
           type="submit"
           onClick={handler}
-          style={{
-            backgroundColor: "#0A2FB6",
-          }}
-          className="btn text-white w-100 p-3"
+          className="btn"
         >
           {title}
         </button>

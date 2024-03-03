@@ -1,5 +1,7 @@
 import React from "react";
 import Button from "./Button";
+import { fetchAllUser, register } from "../Service/Auth.service";
+import { notify } from "../App";
 
 const Registration = ({
   regUserName,
@@ -10,108 +12,118 @@ const Registration = ({
   setRegEmail,
   setRegister,
 }) => {
-  const handleRegister = (e) => {
+
+  const handleRegister = async (e) => {
     e.preventDefault()
-    if (regUserName === "" && regPassword === "" && regEmail === "") {
-      alert('Please enter details.')
+
+    let form = e.target
+    console.log(form);
+    let formData = new FormData(form)
+    let formObj = Object.fromEntries(formData.entries())
+    console.log(formObj);
+
+    const res = await register(formObj)
+    console.log(res);
+
+  //  const res = await fetchAllUser()
+  //  console.log(res);
+
+
+    if (res === "User registration successful") {
+      setRegister(true);
+      notify(res)
     }else{
-    setRegister(true);
+      notify(res)
     }
   };
+
+
 
   return (
     <form
     onSubmit={handleRegister}
-      style={{
-        paddingLeft: "9rem",
-        paddingTop: "5rem",
-      }}
-      className="col-8"
     >
-      <div className="w-50 h-100 d-flex justify-content-center flex-column">
+      <div className="inner-login-div">
         <h3 className="fw-bold">Register with EcoBilling</h3>
-        <p
-          style={{
-            color: "#B9B8B8",
-          }}
-        >
+        <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry.
         </p>
         <div className="mb-3">
           <label
-            style={{
-              fontWeight: "600",
-            }}
-            htmlFor="exampleFormControlInput1"
-            className="form-label  corbon-black"
-          >
-            Email Address
-          </label>
-          <input
-            value={regEmail}
-            onChange={(e) => setRegEmail(e.target.value)}
-            type="email"
-            className="form-control p-3 form-input"
-            placeholder="name@example.com"
-          />
-        </div>
-        <div className="mb-3">
-          <label
-            style={{
-              fontWeight: "600",
-            }}
             htmlFor="exampleFormControlInput1"
             className="form-label corbon-black"
           >
-            User Name
+            First Name
           </label>
           <input
-            value={regUserName}
-            onChange={(e) => setRegUserName(e.target.value)}
+            // value={regUserName}
+            // onChange={(e) => setRegUserName(e.target.value)}
             type="text"
+            name="firstName"
             className="form-control p-3 form-input"
             placeholder="Please enter user name"
           />
         </div>
         <div className="mb-3">
           <label
-            style={{
-              fontWeight: "600",
-            }}
+            htmlFor="exampleFormControlInput1"
+            className="form-label corbon-black"
+          >
+            Last Name
+          </label>
+          <input
+            // value={regUserName}
+            // onChange={(e) => setRegUserName(e.target.value)}
+            type="text"
+            name="lastName"
+            className="form-control p-3 form-input"
+            placeholder="Please enter user name"
+          />
+        </div>
+
+        
+        <div className="mb-3">
+          <label
+            htmlFor="exampleFormControlInput1"
+            className="form-label  corbon-black"
+          >
+            Email Address
+          </label>
+          <input
+            // value={regEmail}
+            // onChange={(e) => setRegEmail(e.target.value)}
+            type="email"
+            name="email"
+            className="form-control p-3 form-input"
+            placeholder="name@example.com"
+          />
+        </div>
+
+
+        <div className="mb-3">
+          <label
             htmlFor="exampleFormControlInput1"
             className="form-label corbon-black"
           >
             Password
           </label>
           <input
-            value={regPassword}
-            onChange={(e) => setRegPassword(e.target.value)}
+            // value={regPassword}
+            // onChange={(e) => setRegPassword(e.target.value)}
             type="password"
+            name="password"
             className="form-control p-3 form-input"
             placeholder="Please enter password"
           />
         </div>
 
-        <div className="w-100 mb-3 d-flex justify-content-between">
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              value=""
-              id="flexCheckChecked"
-              checked={false}
-            />
-            <label className="form-check-label fs-6" htmlFor="flexCheckChecked">
-              Remember me
-            </label>
-          </div>
-
-          <span className="fs-6">Forgot Passowrd ?</span>
-        </div>
 
         <Button 
         title="Register" />
+
+        
+<button type="button" onClick={() => setRegister(true)} className="btn-two rounded-2" >Login</button>
       </div>
     </form>
   );

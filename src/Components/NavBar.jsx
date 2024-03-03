@@ -4,44 +4,27 @@ import { Link, NavLink } from 'react-router-dom'
 const NavBar = ({handleLogOut}) => {
   return (
     <div
-      style={{
-        transform: "translateY(30px)",
-        zIndex: 2,
-      }}
-      className="bg-white w-75 p-4 m-auto d-flex justify-content-center"
+      className="bg-white menubar"
     >
-      <div className="w-75  d-flex justify-content-between">
+      <div className="menu">
         <NavLink
-          className="text-decoration-none link carbon-black ps-3 pt-2 pb-2 pe-3"
+          className="text-decoration-none link carbon-black"
           to="/house"
         >
           House
         </NavLink>
         <NavLink
-          className="text-decoration-none link carbon-black ps-3 pe-3 pt-2 pb-2"
+          className="text-decoration-none link carbon-black"
           to="/transport"
         >
           Transport
         </NavLink>
-        <Link
-          className="text-decoration-none link carbon-black ps-3 pe-3 pt-2 pb-2"
-          to=""
+        <NavLink
+          className="text-decoration-none link carbon-black"
+          to="/lifestyle"
         >
           Lifestyle
-        </Link>
-        <Link
-          className="text-decoration-none link carbon-black ps-3 pe-3 pt-2 pb-2"
-          to=""
-        >
-          Contact
-        </Link>
-        <button
-          onClick={handleLogOut}
-          className="btn  carbon-blue fw-bold ps-3 pe-3 pt-2 pb-2 "
-          to=""
-        >
-          Logout
-        </button>
+        </NavLink>
       </div>
     </div>
   )

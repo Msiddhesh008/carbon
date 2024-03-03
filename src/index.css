@@ -56,8 +56,10 @@ body{
   right: 45px;
   top: 19px;
 }
-.carbon-black{
-  color: #263A43 !important;
+h1.carbon-black {
+  font-size: 45px;
+  font-weight: 400;
+  color: #263A43
 }
 .carbon-blue{
   color: #00418B !important;
@@ -83,11 +85,27 @@ body{
   border-bottom: 4px solid #54E28D !important;
 }
 
-.home-card{
+.home-card {
   background-color: #F2F2F2;
-
+  padding: 13px;
+  gap: 2px;
+  border-radius: 8px;
+  margin-bottom: 25px;
 }
-
+.home-card .col-8 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.home-card p {
+  font-size: 14px;
+  color: #00000080;
+}
+.home-card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
 .navbar{
   position: absolute;
   top: 0;
@@ -97,13 +115,236 @@ body{
   border-bottom: 3px solid transparent;
 
 }
-.link:hover{
-  border-bottom: 3px solid blue;
+.menubar .link:hover{
+  border-bottom: 3px solid #B7D6B6;
 }
 
-.active{
-  border-bottom: 3px solid blue;
+.menubar .active{
+  border-bottom: 3px solid #B7D6B6;
+}
+.menubar a{
+  padding: 8px 24px;
+  font-weight: 500;
+  color: #000;
 }
 .pointer{
   cursor: pointer !important;
+}
+.sidebar {
+  width: 20vw;
+  padding: 1rem 2rem;
+  overflow-x: hidden;
+  height: 100vh;
+  box-shadow: 1px 1px 7px #00000024;
+}
+.sidebar .side-btn {
+  margin-bottom: 20px;
+}
+.sidebar .side-btn {
+  margin-bottom: 20px;
+}
+.sidebar-logo img {
+  width: 200px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+button.calcbtn {
+  border: 1px solid #00418B;
+  padding: 7px 36px;
+  background-color: transparent;
+  border-top: 2px solid;
+}
+.sidebar .side-btn a {
+  color: #A3AED0;
+  font-size: 17px;
+  display: flex;
+}
+.sidebar .side-btn a svg {
+  font-size: 21px;
+  margin-right: 15px;
+}
+.menubar {
+  transform: translateY(0px);
+  z-index: 2;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  width: 75%;
+  margin: auto;
+}
+.menubar .menu {
+  display: flex;
+  justify-content: space-between;
+  width: 58%;
+}
+.card-body{
+  background-color: rgb(0, 65, 139);
+  transform: translateY(-35px);
+  padding-top: 4rem;
+}
+.next-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0px 13px 30px;
+}
+.card-body label.form-check-label {
+  color: #fff;
+  font-weight: 300;
+}
+.table input {
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 1px 1px 7px #00000057;
+  margin-left: 7px;
+}
+.table select {
+  padding: 2px;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 1px 1px 7px #00000057;
+}
+.table input:focus-visible {
+  outline: none;
+}
+.table select:focus-visible {
+  outline: none;
+}
+.pdf-btn button {
+  border: none;
+  width: 100%;
+  padding: 16px;
+  border-radius: 5px;
+  color: #000;
+  font-weight: 500;
+  margin-top: 10px;
+}
+button.logout-bth {
+  background: linear-gradient(135deg, #868CFF 0%, #4318FF 100%);
+  padding: 8px 64px !important;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 500;
+  margin-top: 5rem !important;
+  display: flex;
+  justify-content: center;
+}
+.login form {
+  padding: 48px;
+}
+.inner-login-div {
+  width: 70%;
+  margin: auto;
+}
+.login .ellipes-blue {
+  background-color: rgb(10, 47, 182);
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.login {
+  height: 100vh;
+  position: relative;
+}
+.inner-login-div p {
+  color: rgb(185, 184, 184);
+}
+.login label.form-label {
+  font-weight: 600;
+}
+button.btn {
+  background-color: rgb(10, 47, 182);
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  color: #fff;
+}
+
+button.btn-two{
+  border: 1px solid rgb(10, 47, 182);
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  color: rgb(10, 47, 182);
+}
+
+
+
+
+button.btn:hover {
+  background-color: rgb(10, 47, 182);
+  color: #fff;
+}
+.chekbox {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.side-btn.active a {
+  color: #2B3674;
+  font-weight: 500;
+}
+.inner-home-page {
+  height: 100vh;
+  width: 80vw;
+  overflow-x: hidden;
+}
+.table-body {
+  width: 100%;
+  padding: 30px 30px 50px 30px;
+}
+.table td {
+  border: none;
+}
+button.btn:active {
+  background-color: rgb(10, 47, 182) !important;
+  color: #fff !important;
+}
+.calc-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+  margin-bottom: 25px;
+}
+.calc-btn span {
+  color: rgb(112, 112, 112);
+  font-size: 18px;
+}
+.footprint {
+  text-align: center;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  gap: 20px;
+}
+span.border-blue {
+  border: 2px solid #00418B;
+}
+.footprint p {
+  font-size: 18px;
+}
+input.form-control {
+  padding: 14px;
+}
+select.form-select {
+  padding: 14px;
+}
+.transport {
+  padding: 30px;
+}
+.transport p {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 24px;
+}
+.table-body .table-bg {
+  background-color: #fff;
+  padding: 28px;
+}
+.transport .form-check {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

@@ -1,94 +1,105 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
+import { login } from "../Service/Auth.service";
+import { notify } from "../App";
 
-const LoginForm = ({ 
-  userName, 
-  setUserName, 
-  password, 
-  setPassword ,
+const LoginForm = ({
+  userName,
+  setUserName,
+  password,
+  setPassword,
   regUserName,
   regPassword,
-  setRegister
+  setRegister,
 }) => {
   const navigate = useNavigate();
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (userName === regUserName && password === regPassword) {
-      alert("Login Successfull !");
-      navigate("/home");
+  const [isRemember, setIsRemember] = useState(false);
+
+  // Save isRemember value to local storage when it changes
+  useEffect(() => {
+    localStorage.setItem("isLoginRemember", isRemember);
+  }, [isRemember]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    let form = e.target;
+    console.log(form);
+    let formData = new FormData(form);
+    let formObj = Object.fromEntries(formData.entries());
+    console.log(formObj);
+
+    const res = await login(formObj);
+    console.log(res);
+
+    if (res === "Invalid Credentials") {
+      notify(res, "error");
+      // setRegister(false)
     } else {
-      alert("Wrong credentials");
-      setRegister(false)
+      if (isRemember) {
+        localStorage.setItem("email", formObj.email);
+        localStorage.setItem("password", formObj.password);
+      } else {
+        localStorage.removeItem("email");
+        localStorage.removeItem("password");
+      }
+      navigate("/home");
+      notify(res);
     }
-    setUserName("");
-    setPassword("");
+
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      style={{
-        paddingLeft: "9rem",
-        paddingTop: "5rem",
-      }}
-      className="col-8"
-    >
-      <div className="w-50 h-100 d-flex justify-content-center flex-column">
+    <form onSubmit={handleSubmit}>
+      <div className="inner-login-div">
         <h3 className="fw-bold">EcoBilling Login</h3>
-        <p
-          style={{
-            color: "#B9B8B8",
-          }}
-        >
+        <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry.
         </p>
         <div className="mb-3">
           <label
-            style={{
-              fontWeight: "600",
-            }}
             htmlFor="exampleFormControlInput1"
             className="form-label corbon-black"
           >
             User Name
           </label>
           <input
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
+            // value={userName}
+            // onChange={(e) => setUserName(e.target.value)}
             type="text"
+            name="email"
             className="form-control p-3 form-input"
             placeholder="Please enter user name"
           />
         </div>
         <div className="mb-3">
           <label
-            style={{
-              fontWeight: "600",
-            }}
             htmlFor="exampleFormControlInput1"
             className="form-label corbon-black"
           >
             Password
           </label>
           <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            // value={password}
+            // onChange={(e) => setPassword(e.target.value)}
             type="password"
+            name="password"
             className="form-control p-3 form-input"
             placeholder="Please enter password"
           />
         </div>
 
-        <div className="w-100 mb-3 d-flex justify-content-between">
+        <div className="chekbox">
           <div className="form-check">
             <input
               className="form-check-input"
               type="checkbox"
               value=""
+              onChange={() => setIsRemember(!isRemember)}
               id="flexCheckChecked"
-              checked={false}
+              checked={isRemember}
             />
             <label className="form-check-label fs-6" htmlFor="flexCheckChecked">
               Remember me
@@ -99,9 +110,9 @@ const LoginForm = ({
         </div>
 
         {/* <div className="mb-3"> */}
-        <Button
-        title="Login"
-        />
+        <Button ty title="Login" />
+        
+        <button type="button" onClick={() => setRegister(false)} className="btn-two rounded-2" >Register now</button>
         {/* </div> */}
       </div>
     </form>
